@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">taquin</string>
+    <string name="end_info">Puzzle résolu \nTemps : %3$1fs, movements : %4$d</string>
+</resources>
