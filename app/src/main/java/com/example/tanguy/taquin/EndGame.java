@@ -29,7 +29,7 @@ public class EndGame extends Activity {
         else
             image.setImageDrawable(getResources().getDrawable(R.drawable.putin));
 
-        float time = intent.getLongExtra("time", 0) / 1000.0f;
+        float time = intent.getLongExtra("time", 0) / 1000;
         int moves = intent.getIntExtra("moves", 0);
 
         TextView t = (TextView) findViewById(R.id.endgame_label);
