@@ -27,6 +27,7 @@ public class Game extends Activity implements GameView.EndGameListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        // Recupere l'image choisie ou par defaut
         this.uriimage = getIntent().getData();
         int size = getIntent().getIntExtra("size", 3);
         this.width = size;
@@ -50,18 +51,6 @@ public class Game extends Activity implements GameView.EndGameListener {
         GameView game = new GameView(this, bitmap, size, size);
         game.setEndGameListener(this);
         setContentView(game);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        gametime.stop();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        gametime.start();
     }
 
     @Override

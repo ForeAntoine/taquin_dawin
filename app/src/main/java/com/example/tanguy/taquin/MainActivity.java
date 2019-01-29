@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Charge une image par defaut
         ImageView viewImage = findViewById(R.id.imagePreview);
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.putin);
         viewImage.setImageBitmap(bitmap);
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        // Recupere l'image charger dans l'imageview
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
             Uri uri = data.getData();
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buttonLoad(View view) {
+        // Ouvre la galerie pour charger une image
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gameLoad(View view) {
+        // Charge le jeu avec la taille de grille selectionner
         Intent game = new Intent(MainActivity.this, Game.class);
         //getIntent().putExtra("image", this.image);
         int size = Integer.parseInt((((Button) view).getText().toString()).substring(0, 1));
